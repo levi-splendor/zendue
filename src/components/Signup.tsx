@@ -75,41 +75,33 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
   const strength = passwordStrength();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 flex items-center justify-center px-4 py-12">
-      {/* Background glow effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
-      </div>
-
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md relative">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 mb-4 shadow-lg shadow-indigo-500/25">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 mb-4 shadow-md">
             <Zap size={32} className="text-white" fill="currentColor" />
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Zendue
-          </h1>
-          <p className="text-zinc-400 mt-2 text-sm">
+          <h1 className="text-4xl font-bold text-gray-900">Zendue</h1>
+          <p className="text-gray-600 mt-2 text-sm">
             Stay focused. Never miss a deadline.
           </p>
         </div>
 
         {/* Card */}
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
           {success ? (
             <div className="text-center py-6">
-              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 size={32} className="text-emerald-400" />
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 size={32} className="text-emerald-600" />
               </div>
-              <h3 className="text-white font-semibold text-xl mb-2">
+              <h3 className="text-gray-900 font-semibold text-xl mb-2">
                 Account created!
               </h3>
-              <p className="text-zinc-400 text-sm mb-6">
+              <p className="text-gray-700 text-sm mb-6">
                 We sent a confirmation email to{" "}
-                <span className="text-indigo-400">{email}</span>. Please verify
-                your email to continue.
+                <span className="text-indigo-600 font-medium">{email}</span>.
+                Please verify your email to continue.
               </p>
               <button
                 onClick={onSwitchToLogin}
@@ -120,10 +112,10 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
             </div>
           ) : (
             <>
-              <h2 className="text-2xl font-bold text-white mb-1">
+              <h2 className="text-2xl font-bold text-gray-900 mb-1">
                 Create account
               </h2>
-              <p className="text-zinc-400 text-sm mb-6">
+              <p className="text-gray-600 text-sm mb-6">
                 Start your productivity journey
               </p>
 
@@ -131,7 +123,7 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <button
                   onClick={handleGoogleSignup}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl text-white text-sm font-medium transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 border-2 border-gray-300 hover:border-gray-400 rounded-2xl text-gray-800 text-sm font-medium transition-all"
                 >
                   <svg width="18" height="18" viewBox="0 0 18 18">
                     <path
@@ -155,7 +147,7 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
                 </button>
                 <button
                   onClick={handleGithubLogin}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl text-white text-sm font-medium transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 border-2 border-gray-300 hover:border-gray-400 rounded-2xl text-gray-800 text-sm font-medium transition-all"
                 >
                   <svg
                     width="18"

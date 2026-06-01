@@ -11,6 +11,7 @@ import NewActivityForm from "./components/NewActivityForm";
 import NavigationBar from "./components/NavigationBar";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
+import Landing from "./components/Landing";
 import { AuthGuard } from "./components/AuthGuard";
 
 // Types
@@ -53,6 +54,8 @@ function App() {
   useActivityNotifier(currentUser?.id); // ← moved here, inside the function
   // Auth page state: "login" | "signup"
   const [authPage, setAuthPage] = useState<"login" | "signup">("login");
+  // Landing page visibility before auth
+  const [showLanding, setShowLanding] = useState(true);
 
   // Timer hook for Pomodoro functionality
   const {
@@ -366,7 +369,13 @@ function App() {
       <Signup onSwitchToLogin={() => setAuthPage("login")} />
     );
 
-  return <AuthGuard fallback={authFallback}>{mainApp}</AuthGuard>;
+  const fallback = showLanding ? (
+    <Landing onGetStarted={() => { setShowLanding(false); setAuthPage("login"); }} />
+  ) : (
+    authFallback
+  );
+
+  return <AuthGuard fallback={fallback}>{mainApp}</AuthGuard>;
 }
 
 export default App;
