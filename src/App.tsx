@@ -314,9 +314,7 @@ function App() {
           <div className="max-w-7xl mx-auto px-8 py-6">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">
-                  ChronosTask
-                </h1>
+                <h1 className="text-3xl font-bold text-gray-900">Zendue</h1>
                 <p className="text-sm text-gray-500 mt-1">
                   Master your schedule with disciplined precision
                 </p>
@@ -370,7 +368,12 @@ function App() {
     );
 
   const fallback = showLanding ? (
-    <Landing onGetStarted={() => { setShowLanding(false); setAuthPage("login"); }} />
+    <Landing
+      onGetStarted={() => {
+        setShowLanding(false);
+        setAuthPage("login");
+      }}
+    />
   ) : (
     authFallback
   );

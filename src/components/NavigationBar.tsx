@@ -1,4 +1,4 @@
-// Navigation Bar - Left Sidebar Navigation for Desktop (ChronosTask Style)
+// Navigation Bar - Left Sidebar Navigation for Desktop (Zendue Style)
 import type { ReactNode } from "react";
 import { Home, CheckSquare, BarChart3, Settings, LogOut } from "lucide-react";
 
@@ -50,10 +50,10 @@ export function NavigationBar({
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">CT</span>
+            <span className="text-white font-bold text-lg">Z</span>
           </div>
           <div>
-            <h1 className="text-xl font-bold text-gray-900">ChronosTask</h1>
+            <h1 className="text-xl font-bold text-gray-900">Zendue</h1>
             <p className="text-xs text-gray-500">Professional Edition</p>
           </div>
         </div>
