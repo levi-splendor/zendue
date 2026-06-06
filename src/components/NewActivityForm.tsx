@@ -167,7 +167,7 @@ export function NewActivityForm({
               value={taskName}
               onChange={(e) => setTaskName(e.target.value)}
               placeholder="What will you focus on?"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
 
@@ -181,7 +181,7 @@ export function NewActivityForm({
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Add details about this activity..."
               rows={3}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
             />
           </div>
 
@@ -197,7 +197,7 @@ export function NewActivityForm({
                   type="time"
                   value={dueTime}
                   onChange={(e) => setDueTime(e.target.value)}
-                  className="bg-transparent text-gray-900 focus:outline-none w-full"
+                  className="bg-white text-black focus:outline-none w-full"
                 />
               </div>
             </div>
@@ -216,7 +216,7 @@ export function NewActivityForm({
                   }
                   min="1"
                   max="180"
-                  className="bg-transparent text-gray-900 focus:outline-none w-full"
+                  className="bg-white text-gray-900 focus:outline-none w-full"
                 />
               </div>
             </div>
@@ -236,7 +236,7 @@ export function NewActivityForm({
                   className={`py-2 px-3 rounded-lg font-medium transition-all text-sm flex items-center justify-center gap-1 ${
                     category === cat
                       ? "bg-primary-600 text-white border border-primary-600"
-                      : "bg-gray-100 text-gray-700 border border-gray-300 hover:border-primary-300"
+                      : "bg-gray-100 text-black border border-gray-300 hover:border-primary-300"
                   }`}
                 >
                   <Tag size={16} />

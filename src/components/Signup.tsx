@@ -56,14 +56,17 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
       setError("Passwords do not match.");
       return;
     }
+
     setLoading(true);
     const { error: authError } = await supabase.auth.signUp({
       email,
       password,
       options: { data: { full_name: fullName } },
     });
+
     if (authError) setError(authError.message);
     else setSuccess(true);
+
     setLoading(false);
   };
 
@@ -86,8 +89,6 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
   };
 
   const strength = getPasswordStrength();
-  const inputClass =
-    "bg-transparent text-black placeholder-zinc-400 focus:outline-none w-full text-sm font-medium";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 flex items-center justify-center px-4 py-12">
@@ -131,6 +132,7 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
                 Start your productivity journey
               </p>
 
+              {/* Social Logins */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <button
                   onClick={handleGoogleSignup}
@@ -161,6 +163,7 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
                   </svg>
                   Google
                 </button>
+
                 <button
                   onClick={handleGithubSignup}
                   className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl text-white text-sm font-medium transition-all"
@@ -186,55 +189,58 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
                 <div className="flex-1 h-px bg-white/10" />
               </div>
 
+              {/* Full Name */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-zinc-300 mb-2">
                   Full Name
                 </label>
-                <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
+                <div className="flex items-center gap-3 bg-gray rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
                   <User size={18} className="text-zinc-400 flex-shrink-0" />
                   <input
                     type="text"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Alex Johnson"
-                    className={inputClass}
+                    className="bg-transparent text-gray-900 placeholder-zinc-400 focus:outline-none w-full text-sm font-medium"
                   />
                 </div>
               </div>
 
+              {/* Email */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-zinc-300 mb-2">
                   Email
                 </label>
-                <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
+                <div className="flex items-center gap-3 bg-gray rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
                   <Mail size={18} className="text-zinc-400 flex-shrink-0" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className={inputClass}
+                    className="bg-transparent text-gray placeholder-zinc-400 focus:outline-none w-full text-sm font-medium"
                   />
                 </div>
               </div>
 
+              {/* Password */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-zinc-300 mb-2">
                   Password
                 </label>
-                <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
+                <div className="flex items-center gap-3 bg-gay rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
                   <Lock size={18} className="text-zinc-400 flex-shrink-0" />
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className={inputClass}
+                    className="bg-transparent text-black placeholder-zinc-400 focus:outline-none w-full text-sm font-medium"
                   />
                 </div>
                 {password.length > 0 && (
                   <div className="mt-2">
-                    <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1 bg-gray/10 rounded-full overflow-hidden">
                       <div
                         className={`h-full ${strength.color} rounded-full transition-all duration-300`}
                         style={{ width: strength.width }}
@@ -249,12 +255,13 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
                 )}
               </div>
 
+              {/* Confirm Password */}
               <div className="mb-5">
                 <label className="block text-sm font-medium text-zinc-300 mb-2">
                   Confirm Password
                 </label>
                 <div
-                  className={`flex items-center gap-3 bg-white rounded-2xl px-4 py-3 border transition-all focus-within:ring-1 ${confirmPassword && password !== confirmPassword ? "border-red-500/50 focus-within:border-red-500 focus-within:ring-red-500/30" : "border-white/10 focus-within:border-indigo-500 focus-within:ring-indigo-500/30"}`}
+                  className={`flex items-center gap-3 bg-gray rounded-2xl px-4 py-3 border transition-all focus-within:ring-1 ${confirmPassword && password !== confirmPassword ? "border-red-500/50 focus-within:border-red-500 focus-within:ring-red-500/30" : "border-white/10 focus-within:border-indigo-500 focus-within:ring-indigo-500/30"}`}
                 >
                   <Lock size={18} className="text-zinc-400 flex-shrink-0" />
                   <input
@@ -265,7 +272,7 @@ export function Signup({ onSwitchToLogin }: SignupProps) {
                       if (e.key === "Enter") handleSignup();
                     }}
                     placeholder="••••••••"
-                    className={inputClass}
+                    className="bg-transparent text-black placeholder-zinc-400 focus:outline-none w-full text-sm font-medium"
                   />
                   {confirmPassword && password === confirmPassword && (
                     <CheckCircle2

@@ -60,9 +60,6 @@ export function Login({ onSwitchToSignup }: LoginProps) {
     if (authError) setError(authError.message);
   };
 
-  const inputClass =
-    "bg-transparent text-black placeholder-zinc-400 focus:outline-none w-full text-sm font-medium";
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
@@ -108,6 +105,7 @@ export function Login({ onSwitchToSignup }: LoginProps) {
                 Sign in to your account
               </p>
 
+              {/* Social Logins */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <button
                   onClick={handleGoogleLogin}
@@ -138,6 +136,7 @@ export function Login({ onSwitchToSignup }: LoginProps) {
                   </svg>
                   Google
                 </button>
+
                 <button
                   onClick={handleGithubLogin}
                   className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl text-white text-sm font-medium transition-all"
@@ -163,6 +162,7 @@ export function Login({ onSwitchToSignup }: LoginProps) {
                 <div className="flex-1 h-px bg-white/10" />
               </div>
 
+              {/* Mode Toggle */}
               <div className="flex gap-2 mb-5 p-1 bg-white/5 rounded-xl">
                 <button
                   onClick={() => setMode("password")}
@@ -178,26 +178,24 @@ export function Login({ onSwitchToSignup }: LoginProps) {
                 </button>
               </div>
 
+              {/* Email Input */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-zinc-300 mb-2">
                   Email
                 </label>
-                <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
-                  <Mail size={18} className="text-zinc-400 flex-shrink-0" />
+                <div className="flex items-center gap-3 bg-gray rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
+                  <Mail size={18} className="text-white flex-shrink-0" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" && mode === "password")
-                        handleEmailLogin();
-                    }}
                     placeholder="you@example.com"
-                    className={inputClass}
+                    className="bg-transparent text-black placeholder-gray focus:outline-none w-full text-sm font-medium"
                   />
                 </div>
               </div>
 
+              {/* Password Input */}
               {mode === "password" && (
                 <div className="mb-5">
                   <div className="flex items-center justify-between mb-2">
@@ -208,17 +206,14 @@ export function Login({ onSwitchToSignup }: LoginProps) {
                       Forgot password?
                     </button>
                   </div>
-                  <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
+                  <div className="flex items-center gap-3 bg-gray rounded-2xl px-4 py-3 border border-white/10 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500/30 transition-all">
                     <Lock size={18} className="text-zinc-400 flex-shrink-0" />
                     <input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") handleEmailLogin();
-                      }}
                       placeholder="••••••••"
-                      className={inputClass}
+                      className="bg-transparent text-black placeholder-gray focus:outline-none w-full text-sm font-medium"
                     />
                   </div>
                 </div>
